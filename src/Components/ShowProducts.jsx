@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { show_alert } from '../components/Function';
+import { show_alert } from '../Components/Function';
 import { FaPlusCircle, FaGift, FaDollarSign, FaFileSignature } from "react-icons/fa";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, FormGroup, Table } from 'reactstrap';
 import Swal from 'sweetalert2';
