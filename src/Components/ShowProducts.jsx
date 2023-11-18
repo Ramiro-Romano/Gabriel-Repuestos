@@ -6,7 +6,7 @@ import { FaPlusCircle, FaGift, FaDollarSign, FaFileSignature } from "react-icons
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, FormGroup, Table } from 'reactstrap';
 import Swal from 'sweetalert2';
 import BotonEliminar from './BotonEliminar';
-import BotonEditar from './BotonEditar'; // Importa el componente BotonEditar
+import BotonEditar from './BotonEditar';
 import '../css/ShowProducts.css'
 
 const ShowProducts = () => {
