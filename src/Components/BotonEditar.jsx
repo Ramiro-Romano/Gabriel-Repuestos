@@ -9,7 +9,6 @@ const BotonEditar = ({ product, onUpdate }) => {
     const [editModal, setEditModal] = useState(false);
     const [nombre, setnombre] = useState(product.nombre);
     const [descripcion, setdescripcion] = useState(product.descripcion);
-    const [linkImg, setLinkImg] = useState(product.linkImg);
     const [precio, setprecio] = useState(product.precio);
 
     const toggleEditModal = () => {
@@ -32,12 +31,11 @@ const BotonEditar = ({ product, onUpdate }) => {
                     id: product.id,
                     nombre,
                     descripcion,
-                    linkImg,
                     precio,
                 };
 
                 try {
-                    axios.put(`http://localhost:3001/productos/${product.id}`, updatedProduct);
+                    axios.put(`http://localhost:3000/productos/${product.id}`, updatedProduct);
                     onUpdate(updatedProduct);
                     toggleEditModal();
                     Swal.fire('Editado', 'El producto ha sido editado correctamente.', 'success');
@@ -72,12 +70,6 @@ const BotonEditar = ({ product, onUpdate }) => {
                         <Label for='descripcion'></Label>
                         <span className='input-group-text'><FaFileSignature /></span>
                         <Input type='text' autoComplete='off' id='descripcion' value={descripcion} onChange={(e) => setdescripcion(e.target.value)} />
-                    </FormGroup>
-
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='img'></Label>
-                        <span className='input-group-text'><FaFileSignature /></span>
-                        <Input className='form-control' autoComplete='off' type='text' id='img' value={linkImg} placeholder='Link de la imagen' onChange={(e) => setLinkImg(e.target.value)} />
                     </FormGroup>
 
                     <FormGroup className='input-group mb-3'>

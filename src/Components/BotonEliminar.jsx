@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { FaTrash } from "react-icons/fa";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, FormGroup } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 
 const BotonEliminar = (props) => {
@@ -55,4 +55,3 @@ const BotonEliminar = (props) => {
 }
 
 export default BotonEliminar;
-g

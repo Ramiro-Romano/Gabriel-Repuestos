@@ -10,13 +10,12 @@ import BotonEditar from './BotonEditar'; // Importa el componente BotonEditar
 import '../css/ShowProducts.css'
 
 const ShowProducts = () => {
-    const URL = 'http://localhost:3001/productos';
+    const URL = 'http://localhost:3000/productos';
     const [products, setProducts] = useState([]);
     const [id, setId] = useState('');
     const [nombre, setnombre] = useState('');
     const [descripcion, setdescripcion] = useState('');
     const [precio, setprecio] = useState('');
-    const [linkImg, setLinkImg] = useState('');
     const [operation, setOperation] = useState(1);
     const [title, setTitle] = useState('');
     const [abierto, setAbierto] = useState(false);
@@ -41,7 +40,6 @@ const ShowProducts = () => {
         setnombre('');
         setdescripcion('');
         setprecio('');
-        setLinkImg('')
         setOperation(op);
 
         if (op === 1) {
@@ -52,7 +50,6 @@ const ShowProducts = () => {
             setnombre(nombre);
             setdescripcion(descripcion);
             setprecio(precio);
-            setLinkImg(linkImg);
         }
     };
 
@@ -79,7 +76,7 @@ const ShowProducts = () => {
                     });
                 } else {
                     // Si el producto es nuevo y no existe en la lista, mostrar mensaje de producto agregado
-                    parametros = { nombre: nombre.trim(), descripcion: descripcion.trim(), precio: precio, linkImg: linkImg };
+                    parametros = { nombre: nombre.trim(), descripcion: descripcion.trim(), precio: precio};
                     metodo = 'POST';
                     await enviarSolicitud(metodo, parametros);
                     getProducts(); // Actualiza la tabla después de la operación
@@ -93,7 +90,6 @@ const ShowProducts = () => {
                         setnombre('');
                         setdescripcion('');
                         setprecio('');
-                        setLinkImg('');
                     }
 
                     abrirModal(1);
@@ -101,7 +97,7 @@ const ShowProducts = () => {
                 }
             } else {
                 // Si la operación no es agregar (es editar), realizar la edición
-                parametros = { id: id, nombre: nombre.trim(), descripcion: descripcion.trim(), precio: precio, linkImg: linkImg };
+                parametros = { id: id, nombre: nombre.trim(), descripcion: descripcion.trim(), precio: precio};
                 metodo = 'PUT';
                 await enviarSolicitud(metodo, parametros);
                 getProducts(); // Actualiza la tabla después de la operación
@@ -148,7 +144,6 @@ const ShowProducts = () => {
                                         <th>#</th>
                                         <th>PRODUCTO</th>
                                         <th>DESCRIPCIÓN</th>
-                                        <th>IMG</th>
                                         <th>PRECIO</th>
                                         <th>ACCIONES</th>
                                     </tr>
@@ -159,7 +154,6 @@ const ShowProducts = () => {
                                             <td>{(i + 1)}</td>
                                             <td>{(product.nombre)}</td>
                                             <td>{(product.descripcion)}</td>
-                                            <td>{product.linkImg}</td>
                                             <td>${new Intl.NumberFormat('es-mx').format(product.precio)}</td>
                                             <td>
                                                 <BotonEditar product={product} onUpdate={getProducts} />
@@ -204,11 +198,7 @@ const ShowProducts = () => {
                         <Input className='form-control' autoComplete='off' type='text' id='descripcion' value={descripcion} placeholder='Descripción' onChange={(e) => setdescripcion(e.target.value)} />
                     </FormGroup>
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='img'></Label>
-                        <span className='input-group-text'><FaFileSignature /></span>
-                        <Input className='form-control' autoComplete='off' type='text' id='img' value={linkImg} placeholder='Link de la imagen' onChange={(e) => setLinkImg(e.target.value)} />
-                    </FormGroup>
+                
 
                     <FormGroup className='input-group mb-3'>
                         <Label for='precio'></Label>
