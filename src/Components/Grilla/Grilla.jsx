@@ -3,7 +3,7 @@ import { Table, Container } from 'react-bootstrap';
 
 const Grilla = ({ productos }) => {
   return (
-    <Container fluid style={{ width: '66%' }}>
+    <Container fluid style={{ width: '66%', marginLeft: '20px' }}>
       <Table striped bordered hover style={{ width: '100%' }}>
         <thead>
           <tr>
@@ -35,3 +35,4 @@ const Grilla = ({ productos }) => {
 };
 
 export default Grilla;
+
