@@ -2,23 +2,29 @@
 .App {
     display: grid;
     place-items: center;
+    height: 100vh;
 }
 
+/* Estilos para los botones en pantallas más pequeñas */
 .btn-container {
-    text-align: left;
-}
-
-.centered-modal {
     display: flex;
+    justify-content: space-between;
+  }
+  
+/* Estilos para los botones */
+.acciones-container {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
 }
 
-/* Estilos específicos para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
-@media (max-width: 768px) {
-    .btn-container {
-        text-align: center; /* Centra el botón en pantallas más pequeñas */
+/* Ajuste para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    .grid-container {
+       grid-template-columns: 1fr;
     }
+}
 
-    /* Otros estilos específicos para pantallas más pequeñas */
+.acciones-container {
+    flex-direction: row;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FaEdit, FaDollarSign, FaGift, FaFileSignature } from "react-icons/fa";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, FormGroup } from 'reactstrap';
+import { FaEdit, FaDollarSign, FaBarcode , FaFileSignature, FaScroll , FaBuilding , FaClipboardList, FaShoppingBasket , FaCartPlus, FaCartArrowDown, FaUserTie  } from "react-icons/fa";
+import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, FormGroup} from 'reactstrap';
 import axios from 'axios';
 import '../css/ShowProducts.css'
 import Swal from 'sweetalert2';
@@ -67,155 +67,164 @@ const BotonEditar = ({ product, onUpdate }) => {
             <button className='btn btn-warning' onClick={toggleEditModal}>
                 <FaEdit />
             </button>
-            <Modal isOpen={editModal} className='custom-modal centered-modal'>
+
+            <Modal isOpen={editModal} className='custom-modal modal-dialog-centered'>
 
                 <ModalHeader>Editar Producto</ModalHeader>
 
                 <ModalBody>
+                    <Row>
+                        {/* Columnas del modal izquierdo */}
+                        <Col md="6">
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='codigo'></Label>
+                                <span className='input-group-text'><FaBarcode /></span>
+                                <Input className='form-control' autoComplete='off' type='text' placeholder='Código' id='codigo' value={codigo} onChange={(e) => setCodigo(e.target.value)} />
+                            </FormGroup>
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='codigo'></Label>
-                        <span className='input-group-text'><FaGift /></span>
-                        <Input className='form-control' autoComplete='off' type='text' placeholder='Código' id='codigo' value={codigo} onChange={(e) => setCodigo(e.target.value)} />
-                    </FormGroup>
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='marca'></Label>
+                                <span className='input-group-text'><FaScroll   /></span>
+                                <Input className='form-control' autoComplete='off' type='text' placeholder='Marca' id='marca' value={marca} onChange={(e) => setMarca(e.target.value)} />
+                            </FormGroup>
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='marca'></Label>
-                        <span className='input-group-text'><FaGift /></span>
-                        <Input className='form-control' autoComplete='off' type='text' placeholder='Marca' id='marca' value={marca} onChange={(e) => setMarca(e.target.value)} />
-                    </FormGroup>
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='precio'></Label>
+                                <span className='input-group-text'><FaDollarSign /></span>
+                                <Input
+                                    className='form-control'
+                                    autoComplete='off'
+                                    type='text'
+                                    id='precio'
+                                    value={precio}
+                                    placeholder='Precio'
+                                    onChange={(e) => {
+                                        const inputValue = e.target.value;
+                                        if (/^\d*\.?\d*$/.test(inputValue)) {
+                                            setPrecio(inputValue);
+                                        } else {
+                                            // Muestra un mensaje de error con SweetAlert2
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Error',
+                                                text: 'Solo se permiten números.',
+                                            });
+                                        }
+                                    }}
+                                />
+                            </FormGroup>
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='precio'></Label>
-                        <span className='input-group-text'><FaDollarSign /></span>
-                        <Input
-                            className='form-control'
-                            autoComplete='off'
-                            type='text'
-                            id='precio'
-                            value={precio}
-                            placeholder='Precio'
-                            onChange={(e) => {
-                                const inputValue = e.target.value;
-                                if (/^\d*\.?\d*$/.test(inputValue)) {
-                                    setPrecio(inputValue);
-                                } else {
-                                    // Muestra un mensaje de error con SweetAlert2
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Error',
-                                        text: 'Solo se permiten números.',
-                                    });
-                                }
-                            }}
-                        />
-                    </FormGroup>
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='descripcion'></Label>
+                                <span className='input-group-text'><FaFileSignature /></span>
+                                <Input type='text' autoComplete='off' id='descripcion' placeholder='Descripción' value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+                            </FormGroup>
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='descripcion'></Label>
-                        <span className='input-group-text'><FaFileSignature /></span>
-                        <Input type='text' autoComplete='off' id='descripcion' placeholder='Descripción' value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
-                    </FormGroup>
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='rubro'></Label>
+                                <span className='input-group-text'><FaBuilding  /></span>
+                                <Input className='form-control' autoComplete='off' type='text' id='rubro' value={rubro} placeholder='Rubro' onChange={(e) => setRubro(e.target.value)} />
+                            </FormGroup>
+                        </Col>
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='rubro'></Label>
-                        <span className='input-group-text'><FaGift /></span>
-                        <Input className='form-control' autoComplete='off' type='text' id='rubro' value={rubro} placeholder='Rubro' onChange={(e) => setRubro(e.target.value)} />
-                    </FormGroup>
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='observaciones'></Label>
-                        <span className='input-group-text'><FaGift /></span>
-                        <Input className='form-control' autoComplete='off' type='text' id='observaciones' value={observaciones} placeholder='Observaciones' onChange={(e) => setObservaciones(e.target.value)} />
-                    </FormGroup>
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='stock'></Label>
-                        <span className='input-group-text'><FaGift /></span>
-                        <Input
-                            className='form-control'
-                            autoComplete='off'
-                            type='text'
-                            id='stock'
-                            value={stock}
-                            placeholder='Stock'
-                            onChange={(e) => {
-                                const inputValue = e.target.value;
-                                const numericValue = inputValue.replace(/\D/g, ''); // Filtrar caracteres no numéricos
-                    
-                                if (inputValue !== numericValue) {
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Error',
-                                        text: 'Solo se permiten números.',
-                                    });
-                                }
-                    
-                                setStock(numericValue); // Actualizar el estado solo con dígitos numéricos
-                            }}
-                        />
-                    </FormGroup>
+                        {/* Columnas del modal derecho */}
+                        <Col>
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='observaciones'></Label>
+                                <span className='input-group-text'><FaClipboardList  /></span>
+                                <Input className='form-control' autoComplete='off' type='text' id='observaciones' value={observaciones} placeholder='Observaciones' onChange={(e) => setObservaciones(e.target.value)} />
+                            </FormGroup>
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='cant_max'></Label>
-                        <span className='input-group-text'><FaGift /></span>
-                        <Input
-                            className='form-control'
-                            autoComplete='off'
-                            type='text'
-                            id='cant_max'
-                            value={cant_max}
-                            placeholder='Cantidad Máxima'
-                            onChange={(e) => {
-                                const inputValue = e.target.value;
-                                const numericValue = inputValue.replace(/\D/g, ''); // Filtrar caracteres no numéricos
-                    
-                                if (inputValue !== numericValue) {
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Error',
-                                        text: 'Solo se permiten números.',
-                                    });
-                                }
-                    
-                                setCant_Max(numericValue); // Actualizar el estado solo con dígitos numéricos
-                            }}
-                        />
-                    </FormGroup>
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='stock'></Label>
+                                <span className='input-group-text'>< FaShoppingBasket /></span>
+                                <Input
+                                    className='form-control'
+                                    autoComplete='off'
+                                    type='text'
+                                    id='stock'
+                                    value={stock}
+                                    placeholder='Stock'
+                                    onChange={(e) => {
+                                        const inputValue = e.target.value;
+                                        const numericValue = inputValue.replace(/\D/g, ''); // Filtrar caracteres no numéricos
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='cant_min'></Label>
-                        <span className='input-group-text'><FaGift /></span>
-                        <Input
-                            className='form-control'
-                            autoComplete='off'
-                            type='text'
-                            id='cant_min'
-                            value={cant_min}
-                            placeholder='Cantidad Mínima'
-                            onChange={(e) => {
-                                const inputValue = e.target.value;
-                                const numericValue = inputValue.replace(/\D/g, ''); // Filtrar caracteres no numéricos
-                    
-                                if (inputValue !== numericValue) {
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Error',
-                                        text: 'Solo se permiten números.',
-                                    });
-                                }
-                    
-                                setCant_Min(numericValue); // Actualizar el estado solo con dígitos numéricos
-                            }}
-                        />
-                    </FormGroup>
+                                        if (inputValue !== numericValue) {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Error',
+                                                text: 'Solo se permiten números.',
+                                            });
+                                        }
 
-                    <FormGroup className='input-group mb-3'>
-                        <Label for='proveedor'></Label>
-                        <span className='input-group-text'><FaGift /></span>
-                        <Input className='form-control' autoComplete='off' type='text' id='proveedor' value={proveedor} placeholder='Proveedor' onChange={(e) => setProveedor(e.target.value)} />
-                    </FormGroup>
+                                        setStock(numericValue); // Actualizar el estado solo con dígitos numéricos
+                                    }}
+                                />
+                            </FormGroup>
 
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='cant_max'></Label>
+                                <span className='input-group-text'><FaCartPlus  /></span>
+                                <Input
+                                    className='form-control'
+                                    autoComplete='off'
+                                    type='text'
+                                    id='cant_max'
+                                    value={cant_max}
+                                    placeholder='Cantidad Máxima'
+                                    onChange={(e) => {
+                                        const inputValue = e.target.value;
+                                        const numericValue = inputValue.replace(/\D/g, ''); // Filtrar caracteres no numéricos
+
+                                        if (inputValue !== numericValue) {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Error',
+                                                text: 'Solo se permiten números.',
+                                            });
+                                        }
+
+                                        setCant_Max(numericValue); // Actualizar el estado solo con dígitos numéricos
+                                    }}
+                                />
+                            </FormGroup>
+
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='cant_min'></Label>
+                                <span className='input-group-text'><FaCartArrowDown /></span>
+                                <Input
+                                    className='form-control'
+                                    autoComplete='off'
+                                    type='text'
+                                    id='cant_min'
+                                    value={cant_min}
+                                    placeholder='Cantidad Mínima'
+                                    onChange={(e) => {
+                                        const inputValue = e.target.value;
+                                        const numericValue = inputValue.replace(/\D/g, ''); // Filtrar caracteres no numéricos
+
+                                        if (inputValue !== numericValue) {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Error',
+                                                text: 'Solo se permiten números.',
+                                            });
+                                        }
+
+                                        setCant_Min(numericValue); // Actualizar el estado solo con dígitos numéricos
+                                    }}
+                                />
+                            </FormGroup>
+
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='proveedor'></Label>
+                                <span className='input-group-text'><FaUserTie  /></span>
+                                <Input className='form-control' autoComplete='off' type='text' id='proveedor' value={proveedor} placeholder='Proveedor' onChange={(e) => setProveedor(e.target.value)} />
+                            </FormGroup>
+                        </Col>
+                    </Row>
                 </ModalBody>
 
 
@@ -227,7 +236,7 @@ const BotonEditar = ({ product, onUpdate }) => {
                         Cancelar
                     </Button>
                 </ModalFooter>
-            </Modal>
+            </Modal >
         </>
     );
 };
