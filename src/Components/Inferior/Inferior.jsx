@@ -13,6 +13,7 @@ const Inferior = ({ producto }) => {
     const [cantMin, setCantMin] = useState(producto.cantMin || '');
     const [cantMax, setCantMax] = useState(producto.cantMax || '');
     const [proveedor, setProveedor] = useState(producto.proveedor || '');
+    const [precio, setPrecio] = useState(producto.precio || '');
 
     return (
         <div className="containerpadre">
@@ -33,7 +34,7 @@ const Inferior = ({ producto }) => {
 
                     <div className='col-uno-dos'>
                         <label className="texto-precio">Precio de venta</label>
-                        <label className="texto-dinero">$1000</label>
+                        <label className= "texto-dinero">{precio}</label>
                     </div>
 
                 </div>

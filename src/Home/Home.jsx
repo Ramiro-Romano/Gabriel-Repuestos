@@ -8,6 +8,7 @@ const Home = () => {
     codigo: "Producto de Prueba",
     stock: 10,
     descripcion: "Este es un producto de prueba para pasar por props.",
+    precio: "250000",
     rubro: "electronica",
     marca: "samsung",
     observaciones: "aguante milei viva la libertad",

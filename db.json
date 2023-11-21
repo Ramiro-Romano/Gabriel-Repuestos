@@ -1,0 +1,17 @@
+{
+  "productos": [
+    {
+      "codigo": "45568",
+      "marca": "xiaomi",
+      "precio": "32423342",
+      "descripcion": "celular de alta gama",
+      "rubro": "celulares",
+      "observaciones": "muy bueno",
+      "stock": "10",
+      "cantMax": "5",
+      "cantMin": "2",
+      "proveedor": "xiaomisss"
+    }
+
+  ]
+}
