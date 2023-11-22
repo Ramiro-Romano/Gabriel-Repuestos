@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import '../Inferior.css';
 
 const Inferior = ({ producto }) => {
-    // Estado para guardar los parámetros del producto
-    const [codigo, setCodigo] = useState(producto.codigo || ''); // Puedes inicializar con valores predeterminados si es necesario
+    /*const [codigo, setCodigo] = useState(producto.codigo || '');
+    console.log(codigo)
     const [stock, setStock] = useState(producto.stock || '');
     const [descripcion, setDescripcion] = useState(producto.descripcion || '');
     const [rubro, setRubro] = useState(producto.rubro || '');
@@ -13,12 +12,11 @@ const Inferior = ({ producto }) => {
     const [cantMin, setCantMin] = useState(producto.cantMin || '');
     const [cantMax, setCantMax] = useState(producto.cantMax || '');
     const [proveedor, setProveedor] = useState(producto.proveedor || '');
-    const [precio, setPrecio] = useState(producto.precio || '');
+    const [precio, setPrecio] = useState(producto.precio || ''); */
 
     return (
         <div className="containerpadre">
             <div className="containerpadre">
-
                 <div className="row1">
                     <div className="col-uno-uno">
                         <button className="gabriel-button">Gabriel</button>
@@ -34,67 +32,65 @@ const Inferior = ({ producto }) => {
 
                     <div className='col-uno-dos'>
                         <label className="texto-precio">Precio de venta</label>
-                        <label className= "texto-dinero">{precio}</label>
+                        <label className= "texto-dinero">{producto[0].precio}</label>
                     </div>
-
                 </div>
 
                 <div className='row2'>
                     <div className='col-dos-uno'>
                         <div className='subcontainer'>
                             <label className='lbl'>codigo</label>
-                            <label>{codigo}</label>
+                            <label>{producto[0].codigo}</label>
                         </div>
 
                         <div className='subcontainer'>
                             <label className='lbl'>stock</label>
-                            <label>{stock}</label>
+                            <label>{producto[0].stock}</label>
                         </div>
 
                         <div className='subcontainer'>
                             <label className='lbl'>descripcion</label>
-                            <label>{descripcion}</label>
+                            <label>{producto[0].descripcion}</label>
                         </div>
                     </div>
 
                     <div className='col-dos-dos'>
                         <div className='subcontainer'>
                             <label className='lbl'>Rubro</label>
-                            <label>{rubro}</label>
+                            <label>{producto[0].rubro}</label>
                         </div>
 
                         <div className='subcontainer'>
                             <label className='lbl'>Marca</label>
-                            <label>{marca}</label>
+                            <label>{producto[0].marca}</label>
                         </div>
 
                         <div className='subcontainer'>
                             <label className='lbl'>Observaciones</label>
-                            <label>{observaciones}</label>
+                            <label>{producto[0].observaciones}</label>
                         </div>
                     </div>
 
                     <div className='col-dos-tres'>
                         <div className='subcontainer'>
                             <label className='lbl'>Cant_min</label>
-                            <label>{cantMin}</label>
+                            <label>{producto[0].cantMin}</label>
                         </div>
 
                         <div className='subcontainer'>
                             <label className='lbl'>Cant_max</label>
-                            <label>{cantMax}</label>
+                            <label>{producto[0].cantMax}</label>
                         </div>
 
                         <div className='subcontainer'>
                             <label className='lbl'>Proveedor</label>
-                            <label>{proveedor}</label>
+                            <label>{producto[0].proveedor}</label>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
 
-export default Inferior
+export default Inferior;

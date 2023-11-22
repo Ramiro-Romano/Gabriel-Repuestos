@@ -1,10 +1,24 @@
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Inferior from "../Components/Inferior/Inferior";
+import axios from "axios";
+
 
 const Home = () => {
-  
-  const productoDePrueba = {
+  const [datos,setDatos]= useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/productos'); 
+        setDatos(response.data);
+      } catch (error) {
+        console.error('Error al obtener datos:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  /*const productoDePrueba = {
     codigo: "Producto de Prueba",
     stock: 10,
     descripcion: "Este es un producto de prueba para pasar por props.",
@@ -17,11 +31,11 @@ const Home = () => {
     proveedor: "javier milei presidente",
 
     
-  };
+  };*/
 
   return (
     <div>
-      <Inferior producto={productoDePrueba} />
+      {datos.length !== 0 && <Inferior producto={datos} />}
     </div>
   );
 };
