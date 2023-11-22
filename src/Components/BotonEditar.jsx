@@ -115,15 +115,23 @@ const BotonEditar = ({ product, onUpdate }) => {
                             </FormGroup>
 
                             <FormGroup className='input-group mb-3'>
-                                <Label for='descripcion'></Label>
-                                <span className='input-group-text'><FaFileSignature /></span>
-                                <Input type='text' autoComplete='off' id='descripcion' placeholder='Descripción' value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
-                            </FormGroup>
-
-                            <FormGroup className='input-group mb-3'>
                                 <Label for='rubro'></Label>
                                 <span className='input-group-text'><FaBuilding  /></span>
                                 <Input className='form-control' autoComplete='off' type='text' id='rubro' value={rubro} placeholder='Rubro' onChange={(e) => setRubro(e.target.value)} />
+                            </FormGroup>
+
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='descripcion'></Label>
+                                <span className='input-group-text'><FaFileSignature /></span>
+                                <textarea
+                                    className='form-control'
+                                    autoComplete='off'
+                                    id='descripcion'
+                                    value={descripcion}
+                                    placeholder='Descripción'
+                                    onChange={(e) => setDescripcion(e.target.value)}
+                                    style={{ resize: 'none' }}
+                                />
                             </FormGroup>
                         </Col>
 
@@ -131,11 +139,6 @@ const BotonEditar = ({ product, onUpdate }) => {
 
                         {/* Columnas del modal derecho */}
                         <Col>
-                            <FormGroup className='input-group mb-3'>
-                                <Label for='observaciones'></Label>
-                                <span className='input-group-text'><FaClipboardList  /></span>
-                                <Input className='form-control' autoComplete='off' type='text' id='observaciones' value={observaciones} placeholder='Observaciones' onChange={(e) => setObservaciones(e.target.value)} />
-                            </FormGroup>
 
                             <FormGroup className='input-group mb-3'>
                                 <Label for='stock'></Label>
@@ -222,6 +225,20 @@ const BotonEditar = ({ product, onUpdate }) => {
                                 <Label for='proveedor'></Label>
                                 <span className='input-group-text'><FaUserTie  /></span>
                                 <Input className='form-control' autoComplete='off' type='text' id='proveedor' value={proveedor} placeholder='Proveedor' onChange={(e) => setProveedor(e.target.value)} />
+                            </FormGroup>
+
+                            <FormGroup className='input-group mb-3'>
+                                <Label for='observaciones'></Label>
+                                <span className='input-group-text'><FaClipboardList /></span>
+                                <textarea
+                                    className='form-control'
+                                    autoComplete='off'
+                                    id='observaciones'
+                                    value={observaciones}
+                                    placeholder='Observaciones'
+                                    onChange={(e) => setObservaciones(e.target.value)}
+                                    style={{ resize: 'none' }}
+                                />
                             </FormGroup>
                         </Col>
                     </Row>
