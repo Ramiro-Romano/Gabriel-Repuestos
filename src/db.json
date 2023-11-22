@@ -1,0 +1,22 @@
+{
+  "productos": [
+    {
+      "codigo": "45568",
+      "descripcion": "celular de alta gama",
+      "precio": "32423342",     
+      "stock": "10"
+    },
+    {
+      "codigo": "8954",
+      "descripcion": "almohada",
+      "precio": "100",     
+      "stock": "5"
+    },
+    {
+      "codigo": "27",
+      "descripcion": "almohada",
+      "precio": "100",     
+      "stock": "5"
+    }
+  ]
+}

@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Grilla from '../Components/Grilla/Grilla';
 import Buscador from '../Components/Buscador/Buscador';
 
 const Home = () => {
-  const productos = [
-    { codigo: '001', descripcion: 'Producto 1', precio: 10.99, stock: 5 },
-    { codigo: '002', descripcion: 'Producto 2', precio: 19.99, stock: 0 },
-  ];
+  const [productos, setProductos] = useState([]);
+
+  const handleSearch = (result) => {
+    setProductos(result);
+  };
 
   return (
     <div>
       <h1>Bienvenido a Gabriel Repuestos</h1>
-      <Buscador/>
+      <Buscador onSearch={handleSearch} />
       <Grilla productos={productos} />
     </div>
   );
