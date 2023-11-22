@@ -1,0 +1,30 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "codigo": "45568",
+      "marca": "xiaomi",
+      "precio": "32423342",
+      "descripcion": "celular de alta gama",
+      "rubro": "celulares",
+      "observaciones": "muy bueno",
+      "stock": "10",
+      "cant_max": "5",
+      "cant_min": "2",
+      "proveedor": "hola"
+    },
+    {
+      "codigo": "asdasd",
+      "marca": "asdasd",
+      "precio": "234",
+      "descripcion": "sadasd",
+      "rubro": "sadasdsa",
+      "observaciones": "sadsa",
+      "stock": "2",
+      "cant_max": "2",
+      "cant_min": "2",
+      "proveedor": "asdasd",
+      "id": 2
+    }
+  ]
+}

@@ -2,12 +2,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { show_alert } from '../Components/Function';
-import {FaPlusCircle, FaDollarSign, FaBarcode , FaFileSignature, FaScroll , FaBuilding , FaClipboardList, FaShoppingBasket , FaCartPlus, FaCartArrowDown, FaUserTie  } from "react-icons/fa";
+import { FaPlusCircle, FaDollarSign, FaBarcode, FaFileSignature, FaScroll, FaBuilding, FaClipboardList, FaShoppingBasket, FaCartPlus, FaCartArrowDown, FaUserTie } from "react-icons/fa";
 import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, FormGroup, Table } from 'reactstrap';
 import Swal from 'sweetalert2';
 import BotonEliminar from './BotonEliminar';
 import BotonEditar from './BotonEditar';
 import '../css/ShowProducts.css'
+import Buscador from './Buscador';
 
 const ShowProducts = () => {
     const URL = 'http://localhost:3000/productos';
@@ -26,6 +27,7 @@ const ShowProducts = () => {
     const [operation, setOperation] = useState(1);
     const [title, setTitle] = useState('');
     const [abierto, setAbierto] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         getProducts();
@@ -171,54 +173,92 @@ const ShowProducts = () => {
 
 
 
+
+
+    // Función de búsqueda
+    const handleSearch = (searchTerm) => {
+        setSearchTerm(searchTerm);
+    };
+
+    // Filtra los productos según el término de búsqueda
+    const filteredProducts = products.filter(product =>
+        product.codigo.includes(searchTerm)
+    );
+
+
+
     return (
         <div className='App'>
             <div className='container-fluid'>
                 <div className='grid-container'>
                     <div className='table-container'>
-                        <Table className='table table-bordered'>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>CÓDIGO</th>
-                                    <th>MARCA</th>
-                                    <th>PRECIO</th>
-                                    <th>DESCRIPCIÓN</th>
-                                    <th>RUBRO</th>
-                                    <th>OBSERVACIÓN</th>
-                                    <th>STOCK</th>
-                                    <th>CANT_MAX</th>
-                                    <th>CANT_MIN</th>
-                                    <th>PROVEEDOR</th>
-                                    <th>ACCIONES</th>
-                                </tr>
-                            </thead>
-
-                            <tbody className='table-group-divider'>
-                                {products.map((product, i) => (
-                                    <tr key={product.id}>
-                                        <td>{(i + 1)}</td>
-                                        <td>{(product.codigo)}</td>
-                                        <td>{(product.marca)}</td>
-                                        <td>${new Intl.NumberFormat('es-mx').format(product.precio)}</td>
-                                        <td>{(product.descripcion)}</td>
-                                        <td>{(product.rubro)}</td>
-                                        <td>{(product.observaciones)}</td>
-                                        <td>{(product.stock)}</td>
-                                        <td>{(product.cant_max)}</td>
-                                        <td>{(product.cant_min)}</td>
-                                        <td>{(product.proveedor)}</td>
-
-                                        <td className='acciones-container'>
-                                            <BotonEditar product={product} onUpdate={getProducts} />
-                                            &nbsp;
-                                            <BotonEliminar url={URL} id={product.id} onUpdate={getProducts} />
-                                        </td>
+                        <div className="search-table-container">
+                            <Buscador onSearch={handleSearch} />
+                            <Table className='table table-bordered'>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>CÓDIGO</th>
+                                        <th>MARCA</th>
+                                        <th>PRECIO</th>
+                                        <th>DESCRIPCIÓN</th>
+                                        <th>RUBRO</th>
+                                        <th>OBSERVACIÓN</th>
+                                        <th>STOCK</th>
+                                        <th>CANT_MAX</th>
+                                        <th>CANT_MIN</th>
+                                        <th>PROVEEDOR</th>
+                                        <th>ACCIONES</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </Table>
+                                </thead>
+                                <tbody className='table-group-divider'>
+                                    {searchTerm
+                                        ? filteredProducts.map((product, i) => (
+                                            <tr key={product.id}>
+                                                <td>{(i + 1)}</td>
+                                                <td>{(product.codigo)}</td>
+                                                <td>{(product.marca)}</td>
+                                                <td>${new Intl.NumberFormat('es-mx').format(product.precio)}</td>
+                                                <td>{(product.descripcion)}</td>
+                                                <td>{(product.rubro)}</td>
+                                                <td>{(product.observaciones)}</td>
+                                                <td>{(product.stock)}</td>
+                                                <td>{(product.cant_max)}</td>
+                                                <td>{(product.cant_min)}</td>
+                                                <td>{(product.proveedor)}</td>
+                                                <td className='acciones-container'>
+                                                    <BotonEditar product={product} onUpdate={getProducts} />
+                                                    &nbsp;
+                                                    <BotonEliminar url={URL} id={product.id} onUpdate={getProducts} />
+                                                </td>
+                                            </tr>
+
+                                        ))
+                                        : products.map((product, i) => (
+                                            <tr key={product.id}>
+                                                <td>{(i + 1)}</td>
+                                                <td>{(product.codigo)}</td>
+                                                <td>{(product.marca)}</td>
+                                                <td>${new Intl.NumberFormat('es-mx').format(product.precio)}</td>
+                                                <td>{(product.descripcion)}</td>
+                                                <td>{(product.rubro)}</td>
+                                                <td>{(product.observaciones)}</td>
+                                                <td>{(product.stock)}</td>
+                                                <td>{(product.cant_max)}</td>
+                                                <td>{(product.cant_min)}</td>
+                                                <td>{(product.proveedor)}</td>
+                                                <td className='acciones-container'>
+                                                    <BotonEditar product={product} onUpdate={getProducts} />
+                                                    &nbsp;
+                                                    <BotonEliminar url={URL} id={product.id} onUpdate={getProducts} />
+                                                </td>
+                                            </tr>
+                                        ))}
+                                </tbody>
+                            </Table>
+                        </div>
                     </div>
+
 
                     <div className='btn-container'>
                         <Button className='btn btn-dark' data-bs-toggle='modal' onClick={() => abrirModal(1)}>
@@ -293,7 +333,7 @@ const ShowProducts = () => {
 
 
                         {/* Modal y contenido del modal */}
-                        <Col md="6"> 
+                        <Col md="6">
                             <FormGroup className='input-group mb-3'>
                                 <Label for='observaciones'></Label>
                                 <span className='input-group-text'><FaClipboardList /></span>

@@ -3,28 +3,36 @@
     display: grid;
     place-items: center;
     height: 100vh;
-}
-
-/* Estilos para los botones en pantallas más pequeñas */
-.btn-container {
-    display: flex;
-    justify-content: space-between;
   }
   
-/* Estilos para los botones */
-.acciones-container {
+
+/* Puedes agregar más estilos según sea necesario */
+
+
+  /* Estilos para los botones */
+  .boton {
+    width: 100px;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  /* Estilos para los botones en pantallas más pequeñas */
+  @media screen and (max-width: 768px) {
+    .App {
+      grid-template-columns: 1fr;
+    }
+  
+    .acciones-container {
+      flex-direction: row;
+    }
+  }
+  
+  /* Estilos para los botones de la barra de acciones */
+  .acciones-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* Ajuste para pantallas más pequeñas */
-@media screen and (max-width: 768px) {
-    .grid-container {
-       grid-template-columns: 1fr;
-    }
-}
-
-.acciones-container {
-    flex-direction: row;
-}
+  }
