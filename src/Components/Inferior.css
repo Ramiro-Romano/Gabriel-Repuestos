@@ -1,0 +1,112 @@
+.containerpadre {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(13, 28, 235);
+    padding: 10px;
+}
+
+
+.row1 {
+   
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.col-uno-uno{
+    
+    margin: 5px;
+}
+.producto-label{
+    font-size: 25px; 
+    font-weight: bold; 
+
+}
+.gabriel-button{
+    background-color: orange;
+    color: black;
+    padding: 12px 20px; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px; 
+
+}
+.col-uno-dos{
+    
+    margin: 5px;
+    margin-top: 15px;
+}
+.texto-precio {
+    background-color: white;
+    color: orange;
+    padding: 10px;
+       border-radius: 4px;
+}
+.texto-dinero {
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+}
+.col-uno-tres{
+   
+    margin: 5px;
+    background-color: orange;
+    color: #ffffff;
+    padding: 10px;
+    align-items: center;
+    border-radius: 4px;
+    position: relative;
+    left: 28%;
+}
+.icono-carrito{
+    font-size: 20px;
+}
+.texto-periodo{
+    font-size: 20px;
+    
+}
+.lbl{
+    font-size: 20px; 
+    font-weight: bold; 
+
+}
+
+.row2 {
+    
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+.col-dos-uno{
+    
+    background-color: rgb(255, 106, 0);
+    padding: 2%;
+    margin: 5px;
+
+}
+.col-dos-dos{
+    
+    background-color: rgb(255, 106, 0);
+    padding: 2%;
+    margin: 5px;
+
+
+}
+.col-dos-tres{
+    
+    background-color: rgb(255, 106, 0);
+    padding: 2%;
+    margin: 5px;
+
+
+}
+
+.subcontainer{
+    display: flex;
+    flex-direction: column;
+}
