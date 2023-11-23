@@ -1,10 +1,10 @@
 import './App.css';
- import DetallesProducto from './Home/DetallesProducto';
+import GrillaYBuscador from './Home/GrillaYBuscador';
 
 function App() {
   return (
     <div className="App">
-       <DetallesProducto />
+      <GrillaYBuscador/>
     </div>
   );
 }
