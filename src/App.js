@@ -1,11 +1,11 @@
 import './App.css';
-import Home from './Home/Home';
+import GrillaYBuscador from './Home/GrillaYBuscador';
 
 function App() {
   console.log('Renderizando App');
   return (
     <div className="App">
-      <Home/>
+      <GrillaYBuscador/>
     </div>
   );
 }

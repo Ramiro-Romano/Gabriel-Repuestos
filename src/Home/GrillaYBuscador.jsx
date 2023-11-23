@@ -3,7 +3,7 @@ import Grilla from '../Components/Grilla/Grilla';
 import Buscador from '../Components/Buscador/Buscador';
 import axios from 'axios';
 
-const Home = () => {
+const GrillaYBuscador = () => {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
@@ -32,4 +32,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default GrillaYBuscador;
