@@ -1,10 +1,9 @@
-import './App.css';
-import GrillaYBuscador from './Home/GrillaYBuscador';
+import Administrador from './Home/Administrador';
 
 function App() {
   return (
     <div className="App">
-      <GrillaYBuscador/>
+      <Administrador/>
     </div>
   );
 }
