@@ -3,7 +3,7 @@ import Inferior from "../Components/Inferior/Inferior";
 import axios from "axios";
 
 
-const Home = () => {
+const DetallesProducto = () => {
   const [datos,setDatos]= useState([])
   useEffect(() => {
     const fetchData = async () => {
@@ -40,4 +40,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default DetallesProducto;
