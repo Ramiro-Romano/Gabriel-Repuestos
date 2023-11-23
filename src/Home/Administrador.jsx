@@ -2,7 +2,7 @@ import React from 'react';
 import ShowProducts from '../Components/ShowProducts';
 
 
-const Home = () => {
+const Administrador = () => {
   return (
     <div className='container'>
       <ShowProducts/>
@@ -10,4 +10,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Administrador;
