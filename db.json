@@ -1,16 +1,16 @@
 {
   "productos": [
     {
-      "codigo": "45568",
+      "codigo": "02121",
       "marca": "xiaomi",
       "precio": "32423342",
       "descripcion": "celular de alta gama",
       "rubro": "celulares",
-      "observaciones": "muy bueno",
+      "observaciones": "aguante milei",
       "stock": "10",
       "cantMax": "5",
       "cantMin": "2",
-      "proveedor": "xiaomisss"
+      "proveedor": "samsung"
     }
     
   ]

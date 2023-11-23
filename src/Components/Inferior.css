@@ -1,10 +1,14 @@
 .containerpadre {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: rgb(13, 28, 235);
     padding: 10px;
-   
 }
+
 
 .row1 {
    
@@ -34,6 +38,7 @@
 .col-uno-dos{
     
     margin: 5px;
+    margin-top: 15px;
 }
 .texto-precio {
     background-color: white;

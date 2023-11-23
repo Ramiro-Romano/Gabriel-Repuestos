@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/productos'); 
+        const response = await axios.get('http://localhost:3000/productos'); 
         setDatos(response.data);
       } catch (error) {
         console.error('Error al obtener datos:', error);
