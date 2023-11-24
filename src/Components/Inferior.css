@@ -11,47 +11,52 @@
 
 
 .row1 {
-   
     display: flex;
     justify-content: space-between;
     margin: 10px;
 }
+
+
 .col-uno-uno{
-    
     margin: 5px;
 }
+
+
 .producto-label{
     font-size: 25px; 
     font-weight: bold; 
+    color:#ffffff
+}
 
-}
-.gabriel-button{
-    background-color: orange;
-    color: black;
-    padding: 12px 20px; 
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 18px; 
 
+.NoProduct{
+    color: #ffffff;
 }
-.col-uno-dos{
-    
-    margin: 5px;
-    margin-top: 15px;
+
+
+
+.col-uno-dos {
+    margin: 2px;
+    margin-top: 1px;
 }
+
+
 .texto-precio {
-    background-color: white;
-    color: orange;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 94, 0);
     padding: 10px;
-       border-radius: 4px;
+    border-radius: 4px;
 }
+
 .texto-dinero {
     background-color: orange;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 10px;
     border-radius: 3px;
+    margin-left: 5px;
 }
+
+
 .col-uno-tres{
    
     margin: 5px;

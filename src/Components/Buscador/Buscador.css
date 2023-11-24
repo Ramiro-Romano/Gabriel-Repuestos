@@ -1,0 +1,71 @@
+.d-flex .form-control {
+    width: 350px;
+    font-size: 18px;
+    height: 40px;
+}
+
+.d-flex .btn-outline-success {
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.d-flex .btn-outline-success:hover,
+.d-flex .btn-outline-success:active,
+.d-flex .btn-outline-success:focus {
+    background-color: blue;
+    border-color: blue;
+    color: white;
+}
+
+.search-button {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: blue;
+    border: 2px solid black;
+    height: 40px;
+    vertical-align: top;
+}
+
+.search-button:hover,
+.search-button:active {
+    background-color: darkblue;
+    border: 2px solid darkblue;
+    color: white;
+}
+
+.d-flex .form-control {
+    width: 350px;
+    font-size: 18px;
+    height: 40px;
+}
+
+.d-flex .btn-outline-success {
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.d-flex .btn-outline-success:hover,
+.d-flex .btn-outline-success:active,
+.d-flex .btn-outline-success:focus {
+    background-color: blue;
+    border-color: blue;
+    color: white;
+}
+
+.search-button {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: blue;
+    border: 2px solid black;
+    height: 40px;
+    vertical-align: top;
+}
+
+.search-button:hover,
+.search-button:active {
+    background-color: darkblue;
+    border: 2px solid darkblue;
+    color: white;
+}

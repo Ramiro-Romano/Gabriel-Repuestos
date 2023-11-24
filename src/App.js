@@ -1,9 +1,9 @@
-import Administrador from './Home/Administrador';
+import Home from './Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <Administrador/>
+      <Home/>
     </div>
   );
 }
