@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Table, Container } from 'react-bootstrap';
 import { DatosContext } from '../../context/DatosContext'; // Importa el contexto
+import '../Grilla/Grilla.css'
 
 const Grilla = ({ productos }) => {
   const { actualizarProductoSeleccionado } = useContext(DatosContext); // Obtiene la función del contexto para actualizar el producto seleccionado
@@ -10,7 +11,7 @@ const Grilla = ({ productos }) => {
   };
 
   return (
-    <Container fluid style={{ width: '66%', marginLeft: '20px' }}>
+    <Container fluid className="grilla-container">
       <Table striped bordered hover style={{ width: '100%' }}>
         <thead>
           <tr>

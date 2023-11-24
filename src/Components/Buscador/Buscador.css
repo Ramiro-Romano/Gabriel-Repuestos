@@ -1,3 +1,18 @@
+/* Buscador.css */
+
+.buscador-container {
+    width: 66%;
+    margin-left: 20px;
+    position: absolute;
+    left: 50.6%;
+    top: 14%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+
+
 .d-flex .form-control {
     width: 350px;
     font-size: 18px;

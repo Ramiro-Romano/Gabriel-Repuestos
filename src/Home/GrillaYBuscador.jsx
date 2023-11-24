@@ -31,7 +31,6 @@ const GrillaYBuscador = () => {
 
   return (
     <div>
-      <h1>Bienvenido a Gabriel Repuestos</h1>
       <Buscador onSearch={handleSearch} />
       <Grilla productos={productos} onRowClick={handleClickFila} />
     </div>

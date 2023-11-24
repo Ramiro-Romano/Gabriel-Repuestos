@@ -17,7 +17,7 @@ function Buscador({ onSearch }) {
   };
 
   return (
-    <div className="search-container" style={{ textAlign: 'left', marginBottom: '20px', marginLeft: '20px' }}>
+    <div className="buscador-container">
       <Form className="d-flex">
         <Form.Control
           type="search"

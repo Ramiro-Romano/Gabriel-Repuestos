@@ -72,11 +72,16 @@ const Inferior = () => {
               </div>
             </div>
           </div>
+
+          <div className="center-text">
+            <h1>Gabriel Repuestos</h1>
+          </div>
         </div>
       ) : (
         <h2 className='NoProduct'>NO SE HA SELECCIONADO UN PRODUCTO</h2>
       )}
     </div>
+
   );
 };
 
