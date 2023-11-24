@@ -2,28 +2,28 @@
   "productos": [
     {
       "id": 1,
-      "codigo": "45568",
-      "marca": "xiaomi",
-      "precio": "32423342",
-      "descripcion": "celular de alta gama",
-      "rubro": "celulares",
-      "observaciones": "muy bueno",
-      "stock": "10",
-      "cant_max": "5",
-      "cant_min": "2",
-      "proveedor": "hola"
+      "codigo": "asdsad",
+      "marca": "asdasd",
+      "precio": "23",
+      "descripcion": "sadasdasd",
+      "rubro": "sadsa",
+      "observaciones": "sadasdasda",
+      "stock": "3",
+      "cant_max": "3",
+      "cant_min": "3",
+      "proveedor": "asdsad"
     },
     {
-      "codigo": "asdasd",
+      "codigo": "waeeq",
       "marca": "asdasd",
-      "precio": "234",
-      "descripcion": "sadasd",
-      "rubro": "sadasdsa",
-      "observaciones": "sadsa",
-      "stock": "2",
-      "cant_max": "2",
-      "cant_min": "2",
-      "proveedor": "asdasd",
+      "precio": "23",
+      "descripcion": "asdas",
+      "rubro": "sadasd",
+      "observaciones": "dsad",
+      "stock": "3",
+      "cant_max": "3",
+      "cant_min": "3",
+      "proveedor": "sadsad",
       "id": 2
     }
   ]

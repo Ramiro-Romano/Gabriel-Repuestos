@@ -438,7 +438,7 @@ const ShowProducts = () => {
                                     id='observaciones'
                                     value={observaciones}
                                     placeholder='Observaciones'
-                                    onChange={(e) => setDescripcion(e.target.value)}
+                                    onChange={(e) => setObservaciones(e.target.value)}
                                     style={{ resize: 'none' }}
                                 />
                             </FormGroup>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import './Buscador.css';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 
 function Buscador({ onSearch }) {
   const [codigo, setCodigo] = useState('');
@@ -31,6 +33,12 @@ function Buscador({ onSearch }) {
         <Button variant="primary" className="search-button" onClick={handleSearch}>
           Buscar
         </Button>
+
+        <Link to='/admin'>
+          <Button variant="warning" className="buscar-admin">
+            Administrador
+          </Button>
+        </Link>
       </Form>
     </div>
   );
